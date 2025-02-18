@@ -1,21 +1,26 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
-import DashboardHeader from './components/DashboardHeader';
+import Header from './components/Header';
 
-interface DashboardLayoutProps {
-    children: React.ReactNode;
-}
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
-    return (
-        <div className="dashboard-layout">
-            <DashboardHeader />
-            <div className="dashboard-content">
-                <Sidebar />
-                <main>{children}</main>
-            </div>
-        </div>
-    );
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <Header toggleSidebar={toggleSidebar} />
+      <div className="flex">
+        <Sidebar isOpen={isOpen} onClose={toggleSidebar} />
+        <main className="flex-1 p-4">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
 };
 
-export default DashboardLayout;
+export default Layout;

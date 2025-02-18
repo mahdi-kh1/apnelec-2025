@@ -1,20 +1,12 @@
 import React from 'react';
-import Sidebar from './components/Sidebar';
-import DashboardHeader from './components/DashboardHeader';
 
 const DashboardPage = () => {
-    return (
-        <div className="dashboard">
-            <Sidebar />
-            <div className="dashboard-content">
-                <DashboardHeader />
-                <main>
-                    <h1>Welcome to the Dashboard</h1>
-                    {/* Additional dashboard content goes here */}
-                </main>
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <h1 className="text-2xl font-bold mb-4">Welcome to the Dashboard</h1>
+      <p>This is the main dashboard page content.</p>
+    </div>
+  );
 };
 
 export default DashboardPage;
