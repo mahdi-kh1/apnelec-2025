@@ -1,7 +1,12 @@
-import { useTheme } from "@/context/ThemeContext";
+"use client";
 
+import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link";
 import Image from "next/image"; // Import Image component
+import { Sun, Moon, User, ChevronDown } from "lucide-react"; // Import Lucide icons
+import LineMdMoonTwotoneAltLoop from "@/public/icons/LineMdMoonTwotoneAltLoop";
+import LineMdSunRisingTwotoneLoop from "@/public/icons/LineMdSunRisingTwotoneLoop";
+import LineMdAccount from "@/public/icons/LineMdAccount";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -77,66 +82,69 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="dark:bg-gray-800 bg-white bg-opacity-50 p-4 should-hide-on-scroll w-4/5 mt-4 rounded-lg mx-auto relative z-50">
-      <ul className="flex justify-between items-center w-full">
-        <div className="flex space-x-4">
-          <li>
-            <Link href="/" className="font-bold text-inherit">
-              <Image
-                className="w-16 sm:w-16 md:w-20"
-                src="/apnelec-ev-logo.png"
-                alt="apnelec"
-                width={80}
-                height={80}
-              />
-            </Link>
-          </li>
-          {menuItems.map((item) => (
-            <li
-              key={item.id}
-              className={`relative group text-black hover:text-gray-900 dark:text-white dark:hover:text-gray-300`}
-            >
-              <Link
-                href={item.href}
-                className={`w-full transition-colors hover:text-primary/80 flex items-center`}
-              >
-                {item.name}
-                {item.submenu && <span className="ml-1">▼</span>}
+    <header className="sticky top-4 z-50">
+      <nav className="dark:bg-gray-800 bg-white dark:bg-opacity-50 bg-opacity-50 backdrop-blur-xl p-4 should-hide-on-scroll w-4/5 rounded-lg mx-auto relative z-50 shadow-lg">
+        <ul className="flex justify-between items-center w-full">
+          <div className="flex space-x-4">
+            <li>
+              <Link href="/" className="font-bold text-inherit">
+                <Image
+                  className="w-16 sm:w-16 md:w-20"
+                  src="/apnelec-ev-logo.png"
+                  alt="apnelec"
+                  width={80}
+                  height={80}
+                />
               </Link>
-              {item.submenu && (
-                <ul className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                  {item.submenu.map((subItem) => (
-                    <li
-                      key={subItem.id}
-                      className={`px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700`}
-                    >
-                      <Link href={subItem.href}>
-                        {subItem.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </li>
-          ))}
-        </div>
-        <div className="flex items-center space-x-4">
-          <li>
-            <button className="text-white bg-primary px-4 py-2 rounded hover:bg-primary/80">
-              Sign In
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={toggleTheme}
-              className="p-2 bg-gray-300 dark:bg-gray-700 rounded"
-            >
-              {theme === "dark" ? "🌙 Dark Mode" : "☀️ Light Mode"}
-            </button>
-          </li>
-        </div>
-      </ul>
-    </nav>
+            {menuItems.map((item) => (
+              <li
+                key={item.id}
+                className={`relative group text-black hover:text-gray-900 dark:text-white dark:hover:text-gray-300`}
+              >
+                <Link
+                  href={item.href}
+                  className={`w-full transition-colors hover:text-primary/80 flex items-center`}
+                >
+                  {item.name}
+                  {item.submenu && (
+                    <ChevronDown className="ml-1 transition-transform group-hover:rotate-180" />
+                  )}
+                </Link>
+                {item.submenu && (
+                  <ul className="absolute left-0 w-48 bg-white dark:bg-gray-800 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto">
+                    {item.submenu.map((subItem) => (
+                      <li
+                        key={subItem.id}
+                        className={`px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700`}
+                      >
+                        <Link href={subItem.href}>{subItem.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </div>
+          <div className="flex items-center space-x-4">
+            <li>
+              <button>
+                <LineMdAccount />
+              </button>
+            </li>
+            <li>
+              <button onClick={toggleTheme}>
+                {theme === "dark" ? (
+                  <LineMdMoonTwotoneAltLoop />
+                ) : (
+                  <LineMdSunRisingTwotoneLoop />
+                )}
+              </button>
+            </li>
+          </div>
+        </ul>
+      </nav>
+    </header>
   );
 };
 

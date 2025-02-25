@@ -61,7 +61,7 @@ const About: React.FC = () => {
         className="bg-cover bg-center pt-16 pb-10 text-white"
         style={{ backgroundImage: "url('/path/to/backgroundImage8.jpg')" }}
       >
-        <div className="container mx-auto">
+        <div className="container px-10 mx-auto">
           <div className="flex flex-wrap">
             <div className="basis-7/12 max-w-full">
               <Image
@@ -132,7 +132,7 @@ const About: React.FC = () => {
       </div>
 
       <div className="bg-cover bg-center pt-16 pb-10 text-white">
-        <div className="container mx-auto">
+        <div className="container px-10 mx-auto">
           <div className="text-center mb-5">
             <span className="decorated l"></span>
             <h2 className="text-2xl font-bold">What Clients said</h2>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Blog: React.FC = () => {
   return (
-    <div className="container mx-auto px-5">
+    <div className="container mx-auto px-10">
       <div className="flex flex-row">
         <div className="px-2 basis-3/12 max-w-full">
           <Image src={"/amir-apnelec.jpg"} alt="about-solar" width={500} height={300} />

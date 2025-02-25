@@ -4,7 +4,7 @@ import ServicesPage from './Services/page';
 
 const Page = () => {
     return (
-        <div className='-mt-24'>
+        <div className='-mt-32'>
             <HeroSlider/>
             <ServicesPage/>
         </div>
