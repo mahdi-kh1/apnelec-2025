@@ -2,29 +2,6 @@ import React from 'react';
 // import { Card, CardBody, CardHeader } from "@nextui-org/react";
 
 export default function ServicesPage() {
-  const services = [
-    {
-      title: "Web Development",
-      description: "Custom web applications built with modern technologies",
-      price: "Starting at $999"
-    },
-    {
-      title: "Mobile Apps",
-      description: "Native and cross-platform mobile applications",
-      price: "Starting at $1499"
-    },
-    {
-      title: "UI/UX Design",
-      description: "Beautiful and intuitive user interfaces",
-      price: "Starting at $799"
-    },
-    {
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and deployment",
-      price: "Starting at $599"
-    }
-  ];
-
   return (
     <div className="min-h-screen p-8">
       <h1 className="text-4xl font-bold text-center mb-12">Our Services</h1>
