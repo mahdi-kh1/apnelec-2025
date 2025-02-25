@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroSlider from './components/HeroSlider';
-import ServicesPage from './services/page';
+import ServicesPage from './Services/page';
 
 const Page = () => {
     return (
